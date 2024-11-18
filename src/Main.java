@@ -26,6 +26,7 @@ public class Main {
         System.out.println("What do you want to do?");
         System.out.println("1. Insert a word and definition");
         System.out.println("2. Search a Definition");
+        System.out.println("3. Print the tree");
         int choice = scanner.nextInt();
 
         switch (choice){
@@ -35,7 +36,8 @@ public class Main {
                 System.out.println("Insert a Meaning");
                 String def = scanner.next();
                 tree.insert(word, def);
-                System.out.println("Inserted");
+                System.out.println("Inserted - " +  word + " : "+ def);
+                System.out.println("Searching for word '" + word + "': " + tree.search(word));
                 break;
             }
             case 2: {
@@ -43,6 +45,10 @@ public class Main {
                 String word = scanner.next();
 //                System.out.println(tree.search(word));
                  System.out.println("Definition of word '" + word + "' is: " + tree.search(word));
+                break;
+            }
+            case 3: {
+                tree.printTree();
                 break;
             }
             default: {
