@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,18 +22,32 @@ public class Main {
             e.printStackTrace();
         }
 
-        System.out.println("B+ Tree structure:");
-        tree.printTree();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What do you want to do?");
+        System.out.println("1. Insert a word and definition");
+        System.out.println("2. Search a Definition");
+        int choice = scanner.nextInt();
 
-        // Search for words
-        String searchWord = "able";
-        System.out.println("Searching for word '" + searchWord + "': " + tree.search(searchWord));
-
-        searchWord = "unknown";
-        System.out.println("Searching for word '" + searchWord + "': " + tree.search(searchWord));
-
-        // insert and  print a test word
-        tree.insert("hijibiji", "hijibiji");
-        System.out.println("Searching for word '" + "hijibiji" + "': " + tree.search("hijibiji"));
-    }
+        switch (choice){
+            case 1: {
+                System.out.println("Insert a word");
+                String word = scanner.next();
+                System.out.println("Insert a Meaning");
+                String def = scanner.next();
+                tree.insert(word, def);
+                System.out.println("Inserted");
+                break;
+            }
+            case 2: {
+                System.out.println("Insert a word for definition");
+                String word = scanner.next();
+//                System.out.println(tree.search(word));
+                 System.out.println("Definition of word '" + word + "' is: " + tree.search(word));
+                break;
+            }
+            default: {
+                System.out.println("Invalid choice");
+            }
+            }
+        }
 }

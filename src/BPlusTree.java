@@ -30,7 +30,7 @@ public class BPlusTree {
     // Insert a word and definition into the B+ Tree
     public void insert(String word, String definition) {
         Node r = root;
-        if (r.words.size() == 2 * T - 1) { // Root is full, need to split
+        if (r.words.size() == 2 * T - 1) {
             Node newRoot = new Node(false);
             newRoot.children.add(r);
             splitChild(newRoot, 0, r);
